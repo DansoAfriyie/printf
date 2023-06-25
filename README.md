@@ -1,5 +1,12 @@
 # 0x11. C - printf team project
 
+## Resources
+
+- [Secrets of printf](https://www.academia.edu/10297206/Secrets_of_printf_)
+
+### man or help:
+
+- `printf (3)`
 
 ## Authorized functions and macros
 
