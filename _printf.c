@@ -17,11 +17,13 @@ int _printf(const char *format, ...)
 	int i;
 
 
+	va_start(ap, format);
+
 	while (format)
 	{
 		if (*format != '%')
 		{
-			_write(format); 
+			_write(format);
 		}
 		else if (*format == 'c')
 		{
@@ -33,12 +35,11 @@ int _printf(const char *format, ...)
 			buffer = va_arg(ap, const char *);
 			for (i = 0; *(buffer + i) != '\0'; i++)
 			{
-				_write(*buffer);
+				_write(buffer);
 			}
 		}
 		format++;
 	}
-	va_start(ap, format);
 
 	va_end(ap);
 	return (sizeof(buffer));
