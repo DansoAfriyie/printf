@@ -13,24 +13,22 @@
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	char *buffer;
+	const char *buffer;
 	int i;
 
 
-	buffer = malloc(sizeof(char) * (1000));
-
-	for (i = 0; i < 10 ; i++)
+	while (format)
 	{
-		if (*(format + i) != '%')
+		if (*format != '%')
 		{
-			_write(format);
+			_write(format); 
 		}
-		else if (*(format + i) == 'c')
+		else if (*format == 'c')
 		{
-			_write(va_arg(ap, const char *));
+			_write(va_arg(ap, char *));
 		}
-		/*
-		else if (*(format + i) == 's')
+
+		else if (*format == 's')
 		{
 			buffer = va_arg(ap, const char *);
 			for (i = 0; *(buffer + i) != '\0'; i++)
@@ -38,18 +36,10 @@ int _printf(const char *format, ...)
 				_write(*buffer);
 			}
 		}
-		*/
-	}
-	/* print up to the character before % */
-	for ( ; *format == '%'; format++)
-	{
-		_write(format);
 		format++;
 	}
-
 	va_start(ap, format);
 
 	va_end(ap);
 	return (sizeof(buffer));
-	free(buffer);
 }
