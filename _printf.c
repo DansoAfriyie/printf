@@ -33,6 +33,14 @@ int _printf(const char *format, ...)
 				for (sval = va_arg(ap, char *); *sval; sval++)
 					_putchar(*sval);
 				break;
+			
+			case 'd':
+				print_number(va_arg(ap, int));
+				break;
+
+			case 'i':
+				print_number(va_arg(ap, int));
+				break;
 
 			default:
 				_putchar(*p);
