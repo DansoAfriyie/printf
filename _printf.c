@@ -4,7 +4,7 @@
 
 /**
  * _printf - produces output according to a format
- * @format: A character string
+ * @format: A character string to print
  *
  * Return: Number of characters written to stdout
  */
